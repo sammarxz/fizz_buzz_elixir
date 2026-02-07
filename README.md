@@ -1,21 +1,27 @@
 # FizzBuzz
 
-**TODO: Add description**
+Implementação do clássico desafio FizzBuzz em Elixir, lendo números de um arquivo CSV para estudo da linguagem e da programação funcional.
 
-## Installation
+## Regras
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `fizz_buzz` to your list of dependencies in `mix.exs`:
+- Divisível por 3 → `:fizz`
+- Divisível por 5 → `:buzz`
+- Divisível por 3 e 5 → `:fizz_buzz`
+- Caso contrário → número original
+
+## Uso
 
 ```elixir
-def deps do
-  [
-    {:fizz_buzz, "~> 0.1.0"}
-  ]
-end
+# Crie um arquivo com números separados por vírgula
+File.write!("numbers.csv", "1,2,3,5,15")
+
+# Execute o FizzBuzz
+FizzBuzz.build("numbers.csv")
+# {:ok, [1, 2, :fizz, :buzz, :fizz_buzz]}
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/fizz_buzz>.
+## Testes
 
+```bash
+mix test
+```
