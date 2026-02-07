@@ -1,10 +1,27 @@
 defmodule FizzBuzz do
   def build(file_name) do
     file_name
-    |> File.read()
-    |> handle_flle_read()
+    |> read_file()
+    |> parse_content()
   end
 
-  def handle_flle_read({:ok, result}), do: result
-  def handle_flle_read({:error, reason}), do: reason
+  defp read_file(file_name) do
+    case File.read(file_name) do
+      {:ok, content} -> content
+      {:error, reason} -> {:error, "File Error: #{reason}"}
+    end
+  end
+
+  defp parse_content({:error, _} = error), do: error
+  defp parse_content(content) do
+    content
+    |> String.split(",")
+    |> Enum.map(&convert_and_trim/1)
+  end
+
+  defp convert_and_trim(item) do
+    item
+    |> String.trim()
+    |> String.to_integer()
+  end
 end

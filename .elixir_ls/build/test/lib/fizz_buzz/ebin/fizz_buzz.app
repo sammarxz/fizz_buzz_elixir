@@ -1,1 +1,0 @@
-{application,fizz_buzz,[{modules,['Elixir.FizzBuzz']},{optional_applications,[]},{applications,[kernel,stdlib,elixir,logger]},{description,"fizz_buzz"},{registered,[]},{vsn,"0.1.0"}]}.
